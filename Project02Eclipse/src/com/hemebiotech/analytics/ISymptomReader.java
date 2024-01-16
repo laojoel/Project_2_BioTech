@@ -1,20 +1,28 @@
 package com.hemebiotech.analytics;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Anything that will read symptom data from a source
- * The important part is, the return value from the operation, which is a list of strings,
- * that may contain many duplications
- * 
- * The implementation does not need to order the list
- * 
- */
-public interface ISymptomReader {
-	/**
-	 * If no data is available, return an empty List
-	 * 
-	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
-	 */
-	List<String> GetSymptoms ();
+public class ISymptomReader {
+
+    public ArrayList<String> ReadDataFromFile (String filePath) {
+        if (filePath != null) {
+            try {
+                ArrayList<String> data = new ArrayList<String>();
+                BufferedReader reader = new BufferedReader (new FileReader(filePath));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    data.add(line);
+                }
+                reader.close();
+                return data;
+            } catch (IOException e) {e.printStackTrace();}
+
+        }
+        return  null;
+    }
+
 }
