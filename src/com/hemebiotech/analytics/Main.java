@@ -9,7 +9,7 @@ public class Main {
         ArrayList<String> inputData = new ISymptomReader().ReadDataFromFile("symptoms.txt");
         // iterate over the data and count the recurrences for each symptom
         Map<String, Integer> result = new AnalyticsCounter().proceedInput(inputData);
-        // Write the result as a text file
+        // Write the result as a text file (UTF8)
         new ISymptomWriter().WriteSymptomDataToFile("result.txt", result);
     }
 }

@@ -9,6 +9,8 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class ISymptomWriter {
+    // Takes the analyzed symptoms as a 2D Array (Map) input and write it as an UTF8 text file
+    // to a specified String path
     public void WriteSymptomDataToFile(String filePath, Map<String, Integer> result) {
         Charset encoding = StandardCharsets.UTF_8;
         try {
