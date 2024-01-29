@@ -10,6 +10,6 @@ public class Main {
         // iterate over the data and count the recurrences for each symptom
         Map<String, Integer> result = new AnalyticsCounter().proceedInput(inputData);
         // Write the result as a text file (UTF8)
-        new ISymptomWriter().WriteSymptomDataToFile("result.txt", result);
+        new ISymptomWriter().WriteSymptomDataToFile("result.out", result);
     }
 }
